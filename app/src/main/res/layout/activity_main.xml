@@ -1,18 +1,18 @@
 <android.support.v4.widget.DrawerLayout
-    android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
 
     <android.support.design.widget.CoordinatorLayout
+        xmlns:lable="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        xmlns:lable="http://schemas.android.com/apk/res-auto">
+        android:layout_height="match_parent">
 
         <android.support.design.widget.AppBarLayout
             android:id="@+id/appbar"
@@ -28,56 +28,77 @@
                 app:layout_scrollFlags="scroll|enterAlways"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
-            <!--<android.support.design.widget.TabLayout
-                android:id="@+id/tab_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?attr/colorPrimary"
-                lable:layout_collapseMode="parallax"
-                lable:tabIndicatorColor="?attr/colorAccent"
-                lable:tabSelectedTextColor="?attr/colorAccent"
-                lable:tabTextColor="?attr/colorPrimaryDark"/>-->
         </android.support.design.widget.AppBarLayout>
 
-<RelativeLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    lable:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/password_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-
-        <EditText
-            android:id="@+id/password"
+        <LinearLayout
+            android:id="@+id/login_layout"
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            lable:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/email_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <AutoCompleteTextView
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:singleLine="true"/>
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/password_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Password"
+                    android:imeActionLabel="Sign In"
+                    android:imeOptions="actionUnspecified"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:singleLine="true"/>
+            </android.support.design.widget.TextInputLayout>
+
+
+        </LinearLayout>
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floating_layout_next"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Password"
-            android:imeActionLabel="Sign In"
-            android:imeOptions="actionUnspecified"
-            android:inputType="textPassword"
-            android:maxLines="1"
-            android:singleLine="true"/>
-    </android.support.design.widget.TextInputLayout>
+            android:layout_margin="20dp"
+            lable:elevation="8dp"
+            lable:borderWidth="0dp"
+            lable:rippleColor="@android:color/white"
+            android:src="@drawable/ic_zoom_in_white"
+            android:layout_gravity="end|bottom">
+        </android.support.design.widget.FloatingActionButton>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floating_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
-        >
-
-    </android.support.design.widget.FloatingActionButton>
-
-</RelativeLayout>
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floating_layout_previous"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            lable:elevation="8dp"
+            lable:borderWidth="0dp"
+            lable:rippleColor="@android:color/white"
+            android:src="@drawable/ic_zoom_out_white"
+            android:layout_gravity="start|bottom">
+        </android.support.design.widget.FloatingActionButton>
 
     </android.support.design.widget.CoordinatorLayout>
+
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
@@ -86,7 +107,6 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/drawer_header"
         app:menu="@menu/drawer"/>
-
 
 
 </android.support.v4.widget.DrawerLayout>
