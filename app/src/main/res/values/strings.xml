@@ -7,5 +7,9 @@
 
     <string name="i_agree_to"><font color="#ffffff">I agree to the </font><u><font color="#219DDD">End User License Agreement</font></u></string>
     <string name="eula_text">I agree to the End User License Agreement</string>
+    <string name="title_activity_landing">LandingActivity</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
